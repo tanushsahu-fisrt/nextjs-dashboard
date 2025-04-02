@@ -20,7 +20,7 @@ export type CustomerDetail = {
   image_url: string;
   amount: number;
   status: string;
-  date : Date;
+  date : Date | string ;
 };
 
 export type Invoice = {

@@ -2,13 +2,17 @@ import { lusitana } from "@/app/ui/fonts";
 import { fetchCustomerById } from "@/app/lib/data";
 import Image from "next/image";
 
-interface PageProps {
-  params: { id: string };
-}
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
-export default async function Page( { params }: PageProps ){
-  
-  const data = await fetchCustomerById(params.id); // Fetch data asynchronously
+
+export default async function Page({ params }: Props){
+
+  const data = await fetchCustomerById(params.id); 
+  console.log(data)
 
   if (!data || data.length === 0) {
     return <p>No customer data found.</p>;
@@ -50,7 +54,9 @@ export default async function Page( { params }: PageProps ){
                 <tr key={index} className="text-center">
                   <td className="border border-gray-400 px-4 py-2">{ele.amount || "N/A"}</td>
                   <td className="border border-gray-400 px-4 py-2">{ele.status || "N/A"}</td>
-                  <td className="border border-gray-400 px-4 py-2">{new Date(ele.date).toLocaleDateString() || "N/A"}</td>
+                  <td className="border border-gray-400 px-4 py-2">
+                    {ele.date ? new Date(ele.date).toLocaleDateString() : "N/A"}
+                  </td>
                 </tr>
               ))}
             </tbody>
