@@ -1,9 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import {
-  UserCircleIcon
-} from '@heroicons/react/24/outline';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { createInvoice , State } from '@/app/lib/actions';
 import { useActionState } from 'react';
@@ -13,7 +11,7 @@ export default function Form() {
   const [state, formAction] = useActionState(createInvoice, initialState);
 
   return (
-    <form action={formAction}>
+    <form action={formAction} >
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         
         {/* Customer Name */}

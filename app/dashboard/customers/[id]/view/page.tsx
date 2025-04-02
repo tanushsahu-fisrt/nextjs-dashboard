@@ -9,11 +9,10 @@ type Props = {
 };
 
 
-export default async function Page({ params }: Props){
+export default async function Page( { params }: Props ){
 
-  const data = await fetchCustomerById(params.id); 
-  console.log(data)
-
+  const data = await fetchCustomerById(params.id as string); 
+  
   if (!data || data.length === 0) {
     return <p>No customer data found.</p>;
   }
