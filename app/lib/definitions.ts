@@ -13,6 +13,16 @@ export type Customer = {
   image_url: string;
 };
 
+export type CustomerDetail = {
+  id: string;
+  name: string;
+  email: string;
+  image_url: string;
+  amount: number;
+  status: string;
+  date : Date;
+};
+
 export type Invoice = {
   id: string;
   customer_id: string;
