@@ -2,7 +2,12 @@ import { lusitana } from "@/app/ui/fonts";
 import { fetchCustomerById } from "@/app/lib/data";
 import Image from "next/image";
 
-export default async function Page({ params }: { params: { id: string } }) {
+
+interface PageProps {
+    params: { id: string };
+}
+
+export default async function Page({ params }: PageProps ) {
   const data = await fetchCustomerById(params.id); // Fetch data asynchronously
   console.log(data);
 

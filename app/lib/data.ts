@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   Revenue,
   Customer,
+  CustomerDetail,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -229,7 +230,7 @@ export async function fetchAllCustomers(){
 
 export async function fetchCustomerById(id : string){
   try{
-    const response = await sql<Customer>` SELECT 
+    const response = await sql<CustomerDetail>` SELECT 
         customers.id,
         customers.name,
         customers.email,
