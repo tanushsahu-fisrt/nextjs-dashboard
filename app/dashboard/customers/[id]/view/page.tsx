@@ -1,18 +1,19 @@
 import { lusitana } from "@/app/ui/fonts";
 import { fetchCustomerById } from "@/app/lib/data";
 import Image from "next/image";
-import { NextPage } from "next";
 
 interface PageProps {
   params: { id: string };
 }
 
-const Page : NextPage<PageProps> = async ( { params }: PageProps ) => {
+export default async function Page( { params }: PageProps ){
+  
   const data = await fetchCustomerById(params.id); // Fetch data asynchronously
 
   if (!data || data.length === 0) {
     return <p>No customer data found.</p>;
   }
+
 
   return (
     <div className="w-full">
@@ -59,5 +60,3 @@ const Page : NextPage<PageProps> = async ( { params }: PageProps ) => {
     </div>
   );
 }
-
-export default Page;

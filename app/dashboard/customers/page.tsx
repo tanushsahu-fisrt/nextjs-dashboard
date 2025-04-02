@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PlusIcon , ArrowUpRightIcon} from '@heroicons/react/24/outline';
 
-
-
-
 export default async function Page() {
   const customers = await fetchAllCustomers();
 
