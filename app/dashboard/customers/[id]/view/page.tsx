@@ -7,9 +7,8 @@ interface PageProps {
     params: { id: string };
 }
 
-export default async function Page({ params }: PageProps ) {
+export default async function Page( { params }: PageProps ) {
   const data = await fetchCustomerById(params.id); // Fetch data asynchronously
-  console.log(data);
 
   if (!data || data.length === 0) {
     return <p>No customer data found.</p>;
@@ -48,9 +47,9 @@ export default async function Page({ params }: PageProps ) {
             <tbody>
               {data.map((ele, index) => (
                 <tr key={index} className="text-center">
-                  <td className="border border-gray-400 px-4 py-2">{ele.amount}</td>
-                  <td className="border border-gray-400 px-4 py-2">{ele.status}</td>
-                  <td className="border border-gray-400 px-4 py-2">{new Date(ele.date).toLocaleDateString()}</td>
+                  <td className="border border-gray-400 px-4 py-2">{ele.amount || "N/A"}</td>
+                  <td className="border border-gray-400 px-4 py-2">{ele.status || "N/A"}</td>
+                  <td className="border border-gray-400 px-4 py-2">{new Date(ele.date).toLocaleDateString() || "N/A"}</td>
                 </tr>
               ))}
             </tbody>
