@@ -240,7 +240,7 @@ export async function fetchCustomerById(id : string){
         invoices.date
         FROM customers 
         LEFT JOIN invoices ON invoices.customer_id = customers.id
-        WHERE customers.id = ${id}`
+        WHERE customers.id = ${id}`;
 
     const data = response.rows;
     return data;
