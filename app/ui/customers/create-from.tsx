@@ -78,7 +78,6 @@ export default function Form() {
                   id="profile-photo"
                   name="profile-photo"
                   type="file"
-                  value="profile-photo"
                   className="cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   required
                 />

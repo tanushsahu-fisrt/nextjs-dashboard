@@ -1,13 +1,13 @@
 import { lusitana } from "@/app/ui/fonts";
 import { fetchCustomerById } from "@/app/lib/data";
 import Image from "next/image";
-
+import { NextPage } from "next";
 
 interface PageProps {
-    params: { id: string };
+  params: { id: string };
 }
 
-export default async function Page( { params }: PageProps ) {
+const Page : NextPage<PageProps> = async ( { params }: PageProps ) => {
   const data = await fetchCustomerById(params.id); // Fetch data asynchronously
 
   if (!data || data.length === 0) {
@@ -59,3 +59,5 @@ export default async function Page( { params }: PageProps ) {
     </div>
   );
 }
+
+export default Page;
